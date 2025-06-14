@@ -70,6 +70,7 @@ def setup_llm():
 
 def sync_csvs_overwrite(source_path: str, dest_folder: str = "files"):
     os.makedirs(dest_folder, exist_ok=True)
+    source_path = os.path.expanduser(source_path)
     messages = []
     if os.path.isfile(source_path) and source_path.lower().endswith(".zip"):
         try:
